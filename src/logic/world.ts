@@ -8,6 +8,12 @@ interface WorldConfig
     states: any
 }
 
+interface Point
+{
+    x: number
+    y: number
+}
+
 export default class World
 {
     // Config
