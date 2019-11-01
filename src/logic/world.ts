@@ -34,7 +34,7 @@ export default class World
     // Grid (grid[x][y] = grid state)
     grid: Status[][];
 
-    // Active points
+    // Active points (Undefined = no cell)
     activePoints: Point[];
 
     /**
