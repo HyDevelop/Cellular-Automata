@@ -60,4 +60,26 @@ export default class World
             this.activePoints.push(point)
         }
     }
+
+    /**
+     * Get value of a point
+     *
+     * @param point
+     * @return Status
+     */
+    private getPoint(point: Point): Status
+    {
+        return this.grid[point.x][point.y];
+    }
+
+    /**
+     * Set value of a point
+     *
+     * @param point
+     * @param status
+     */
+    private setPoint(point: Point, status: Status)
+    {
+        this.grid[point.x][point.y] = status;
+    }
 }
