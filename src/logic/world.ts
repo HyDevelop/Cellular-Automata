@@ -38,5 +38,14 @@ export default class World
 
         // Make empty grid
         this.grid = new Array(config.width).fill(0).map(() => new Array(config.height).fill(0));
+
+        // Initialize active points
+        this.activePoints = [];
+        for (let point of config.points)
+        {
+            // Update value
+            this.grid[point.x][point.y] = true;
+            this.activePoints.push(point)
+        }
     }
 }
