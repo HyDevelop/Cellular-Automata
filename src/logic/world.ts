@@ -26,6 +26,15 @@ interface Status
     alive: boolean
 }
 
+/**
+ * A Cell contains its coordinates and its status
+ */
+interface Cell
+{
+    point: Point
+    status: Status
+}
+
 export default class World
 {
     // Config
