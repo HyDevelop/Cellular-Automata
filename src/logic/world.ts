@@ -32,15 +32,15 @@ export default class World
     config: WorldConfig;
 
     // Grid (grid[x][y] = grid state)
-    grid: boolean[][];
+    grid: Status[][];
 
     // Active points
     activePoints: Point[];
 
     /**
-     * Constructor
+     * Construct a world with a defined world config
      *
-     * @param config Configuration
+     * @param config
      * @constructor
      */
     public World(config: WorldConfig)
@@ -48,7 +48,8 @@ export default class World
         this.config = config;
 
         // Make empty grid
-        this.grid = new Array(config.width).fill(0).map(() => new Array(config.height).fill(0));
+        this.grid = new Array(config.width).fill(undefined)
+            .map(() => new Array(config.height).fill(undefined));
 
         // Initialize active points
         this.activePoints = [];
