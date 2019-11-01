@@ -13,7 +13,7 @@ export default class World
     // Config
     config: WorldConfig;
 
-    // Variables
+    // Grid (grid[x][y] = grid state)
     grid: number[][];
 
     /**
