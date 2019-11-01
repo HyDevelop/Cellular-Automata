@@ -37,6 +37,9 @@ interface Cell
 
 export default class World
 {
+    // Default status
+    private static defaultStatus: Status = {alive: false};
+
     // Config
     config: WorldConfig;
 
@@ -77,7 +80,8 @@ export default class World
      */
     private getPoint(point: Point): Status
     {
-        return this.grid[point.x][point.y];
+        let status = this.grid[point.x][point.y];
+        return status == undefined ? World.defaultStatus : status;
     }
 
     /**
