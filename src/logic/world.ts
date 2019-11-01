@@ -22,6 +22,9 @@ export default class World
     // Grid (grid[x][y] = grid state)
     grid: number[][];
 
+    // Active points
+    activePoints: number[];
+
     /**
      * Constructor
      *
