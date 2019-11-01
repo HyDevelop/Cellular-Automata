@@ -20,10 +20,10 @@ export default class World
     config: WorldConfig;
 
     // Grid (grid[x][y] = grid state)
-    grid: number[][];
+    grid: boolean[][];
 
     // Active points
-    activePoints: number[];
+    activePoints: Point[];
 
     /**
      * Constructor
