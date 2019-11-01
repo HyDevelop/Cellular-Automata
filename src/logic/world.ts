@@ -6,6 +6,7 @@ interface WorldConfig
     height: number
     rules: any
     states: any
+    points: Point[]
 }
 
 interface Point
