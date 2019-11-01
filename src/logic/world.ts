@@ -56,7 +56,7 @@ export default class World
         for (let point of config.points)
         {
             // Update value
-            this.grid[point.x][point.y] = true;
+            this.setPoint(point, {alive: true});
             this.activePoints.push(point)
         }
     }
