@@ -9,10 +9,21 @@ interface WorldConfig
     points: Point[]
 }
 
+/**
+ * A point contains a x coordinate and a y coordinate.
+ */
 interface Point
 {
     x: number
     y: number
+}
+
+/**
+ * Status of a cell. Currently is either dead or alive.
+ */
+interface Status
+{
+    alive: boolean
 }
 
 export default class World
