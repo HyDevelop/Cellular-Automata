@@ -53,12 +53,11 @@ export default class World
 
         // Initialize active points
         this.activePoints = [];
-        for (let point of config.points)
+        config.points.forEach(point =>
         {
-            // Update value
             this.setPoint(point, {alive: true});
             this.activePoints.push(point)
-        }
+        });
     }
 
     /**
