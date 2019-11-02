@@ -1,6 +1,10 @@
 <template>
     <div id="graphics">
-        <canvas id="world-canvas"></canvas>
+        <div id="canvas-div">
+            <canvas id="world-canvas"></canvas>
+        </div>
+
+        <el-button type="primary" plain>Update</el-button>
     </div>
 </template>
 
@@ -41,7 +45,7 @@
         border-radius: 10px;
     }
 
-    #graphics
+    #canvas-div
     {
         display: flex;
         box-shadow: 0 2px 12px 0 rgba(0,0,0,.5);
