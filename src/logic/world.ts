@@ -53,7 +53,7 @@ export default class World
     config: WorldConfig;
 
     // Grid (grid[x][y] = grid state)
-    grid: Status[][];
+    grid: Cell[][];
 
     // Active points (Undefined = no cell)
     activePoints: Point[];
@@ -84,23 +84,15 @@ export default class World
      * Get value of a point
      *
      * @param point
-     * @return Status
-     */
-    private getPoint(point: Point): Status
-    {
-        let status = this.grid[point.x][point.y];
-        return status == undefined ? World.defaultStatus : status;
-    }
-
-    /**
-     * Get value of a point as a cell
-     *
-     * @param point
      * @return Cell
      */
-    private getCell(point: Point): Cell
+    private getPoint(point: Point): Cell
     {
-        return {point: point, status: this.getPoint(point)};
+        let cell = this.grid[point.x][point.y];
+
+        // If null, give the point a unique value
+        return cell != undefined ? cell
+            : this.grid[point.x][point.y] = {point: point, status: World.defaultStatus};
     }
 
     /**
