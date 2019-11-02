@@ -8,9 +8,9 @@ export interface Pattern
 }
 
 const PATTERN_R_PENTOMINO =
-    '.##' +
-    '##.' +
-    '.#.';
+    `.##
+     ##.
+     .#.`;
 
 export default class Presets
 {
@@ -43,7 +43,7 @@ export default class Presets
     public parse(pattern: Pattern): Cell[]
     {
         // Split string into 2d array
-        let lines: string[] = pattern.pattern.split('\n');
+        let lines: string[] = pattern.pattern.replace(/ /g, '').split('\n');
         let result: Cell[] = [];
 
         let centerX = Math.floor(pattern.width / 2);
