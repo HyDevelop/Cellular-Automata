@@ -119,6 +119,9 @@ export default class World
 
         // Put nearby points in.
         alivePoints = alivePoints.flatMap(point => this.getNearbyCells(point).flat().map(cell => cell.point));
+
+        // Only unique values
+        this.activePoints = [...new Set(alivePoints)];
     }
     /**
      * Get nearby 9*9 cells
