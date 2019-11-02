@@ -1,7 +1,7 @@
 /**
  * Config of a world
  */
-interface WorldConfig
+export interface WorldConfig
 {
     // Meta information
     name: string
@@ -15,7 +15,7 @@ interface WorldConfig
 /**
  * A point contains a x coordinate and a y coordinate.
  */
-interface Point
+export interface Point
 {
     x: number
     y: number
@@ -24,7 +24,7 @@ interface Point
 /**
  * Status of a cell. Currently is either dead or alive.
  */
-interface Status
+export interface Status
 {
     alive: boolean
 }
@@ -32,7 +32,7 @@ interface Status
 /**
  * A Cell contains its coordinates and its status
  */
-interface Cell
+export interface Cell
 {
     point: Point
     status: Status
