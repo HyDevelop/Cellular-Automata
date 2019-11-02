@@ -120,4 +120,9 @@ export default class Renderer
     {
         return cell.status.alive ? CELL_ALIVE : CELL_DEAD;
     }
+
+    public drawCell(cell: Cell)
+    {
+        this.drawGridBlock(this.getCellColor(cell), {gridX: cell.point.x, gridY: cell.point.y})
+    }
 }
