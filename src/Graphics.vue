@@ -5,7 +5,7 @@
         </div>
 
         <div id="controls">
-            <el-button type="info" plain>Update</el-button>
+            <el-button type="info" plain @click="updateButton">Update</el-button>
         </div>
     </div>
 </template>
@@ -23,6 +23,9 @@
         renderer: Renderer;
         world: World;
 
+        /**
+         * This is called when the page finishes loading
+         */
         mounted()
         {
             // Find canvas and create renderer
@@ -45,6 +48,14 @@
                 presetCells: new Presets({x: 500, y: 250}).R_PENTOMINO,
                 onUpdate: cell => this.renderer.drawCell(cell)
             })
+        }
+
+        /**
+         * This is called when the update button is clicked
+         */
+        updateButton()
+        {
+            this.world.act()
         }
     }
 </script>
