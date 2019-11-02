@@ -16,7 +16,7 @@
     import World from '@/logic/world';
     import Rules from '@/logic/rules';
     import Presets from '@/logic/presets';
-    import Timer from "@/logic/timer";
+    import Timer from '@/logic/timer';
 
     @Component
     export default class Graphics extends Vue
