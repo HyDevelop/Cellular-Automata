@@ -6,7 +6,9 @@
 
         <div id="controls">
             <el-button type="info" plain @click="updateButton">Update</el-button>
-            <el-button type="info" plain @click="toggle">{{timer.started ? 'Stop' : 'Start'}}</el-button>
+            <el-button v-if="timer != null" type="info" plain @click="toggle">
+                {{timer.started ? 'Stop' : 'Start'}}
+            </el-button>
         </div>
     </div>
 </template>
@@ -24,7 +26,7 @@
     {
         renderer: Renderer;
         world: World;
-        timer: Timer;
+        timer: Timer = null as unknown as Timer;
 
         /**
          * This is called when the page finishes loading
