@@ -66,4 +66,27 @@ export default class Renderer
         this.context.fillStyle = color;
         this.context.fillRect(box.x, box.y, box.xLen, box.yLen);
     }
+
+    /**
+     * Draw grid lines
+     */
+    public drawGrid()
+    {
+        // Get width and height
+        let width = this.width;
+        let height = this.height;
+
+        // Loop through all x values
+        for (let x = 1; x < width; x += BLOCK_FULL_LEN)
+        {
+            // Draw line
+            this.drawRect(GRID_LINE_COLOR, {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
+        }
+
+        // Loop through all y values
+        for (let y = 1; y < height; y += BLOCK_FULL_LEN)
+        {
+            this.drawRect(GRID_LINE_COLOR, {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
+        }
+    }
 }
