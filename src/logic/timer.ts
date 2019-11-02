@@ -1,6 +1,6 @@
 export default class Timer
 {
-    private intervalId: number;
+    private intervalId: number = -1;
     private callback: TimerHandler;
     private delay: number;
 
@@ -45,5 +45,13 @@ export default class Timer
     {
         this.stop();
         this.start();
+    }
+
+    /**
+     * Started or not
+     */
+    get started()
+    {
+        return this.intervalId != -1;
     }
 }
