@@ -1,3 +1,6 @@
+/**
+ * Config of a world
+ */
 interface WorldConfig
 {
     // Meta information
@@ -6,7 +9,7 @@ interface WorldConfig
     height: number
     rules: any
     states: any
-    points: Point[]
+    presetCells: Cell[]
 }
 
 /**
@@ -65,10 +68,10 @@ export default class World
 
         // Initialize active points
         this.activePoints = [];
-        config.points.forEach(point =>
+        config.presetCells.forEach(cell =>
         {
-            this.setPoint(point, {alive: true});
-            this.activePoints.push(point)
+            this.setPoint(cell.point, cell.status);
+            this.activePoints.push(cell.point)
         });
     }
 
