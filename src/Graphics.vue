@@ -49,5 +49,8 @@
         // Alignment
         margin: 10px;
         max-width: 1200px;
+
+        // Rounded corners
+        border-radius: 10px;
     }
 </style>
