@@ -103,7 +103,11 @@ export default class World
      */
     private setPoint(point: Point, status: Status)
     {
-        this.grid[point.x][point.y] = status;
+        // Get cell
+        let cell = this.getPoint(point);
+
+        // Update cell status
+        cell.status = status.alive ? STATUS_ALIVE : STATUS_DEAD;
 
         // Callback
         if (this.config.onUpdate != null)
