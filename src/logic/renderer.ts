@@ -7,6 +7,12 @@ export interface Box
     yLen: number
 }
 
+export interface Block
+{
+    gridX: number
+    gridY: number
+}
+
 // Constant configurations
 const GRID_LINE_COLOR = '#5f5f5f';
 const GRID_LINE_LEN = 1;
