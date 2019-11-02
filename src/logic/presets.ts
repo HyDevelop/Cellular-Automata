@@ -79,6 +79,43 @@ export default class Presets
     {
         let banner = this.parse({width: 114, height: 6, pattern: PATTERN_CELLULAR_AUTOMATA});
 
+        // Add random points
+        /*for (let i = 0; i < 200; i ++)
+        {
+            let POSITIONS =
+            [
+                [-1, -1], [-1, 0], [-1, 1],
+                [ 0, -1], [ 0, 0], [ 0, 1],
+                [ 1, -1], [ 1, 0], [ 1, 1]
+            ];
+
+            let x = Math.floor(Math.random() * 198 - 99);
+            let y = Math.floor(Math.random() * 98 - 49);
+            let neighborsCount = Math.floor(Math.random() * 4);
+
+            let existingNeighbors = [4];
+
+            // Add neighbors
+            for (let j = 0; j < neighborsCount; j++)
+            {
+                let pos = Math.floor(Math.random() * 8);
+
+                // Already exist
+                if (existingNeighbors.includes(pos))
+                {
+                    j--;
+                    continue;
+                }
+
+                // Push
+                existingNeighbors.push(pos);
+                banner.push(this.cell(x + Presets.POSITIONS[pos][0], y + Presets.POSITIONS[pos][1], STATUS_ALIVE))
+            }
+
+            banner.push(this.cell(x, y, STATUS_ALIVE));
+            // banner.push(...new Presets({x: Math.floor(Math.random() * 20 + i), y: Math.floor(Math.random() * 98 + 1)}).R_PENTOMINO);
+        }*/
+
         return banner;
     }
 }
