@@ -48,5 +48,6 @@
 
         // Alignment
         margin: 10px;
+        max-width: 1200px;
     }
 </style>
