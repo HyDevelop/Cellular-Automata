@@ -9,4 +9,12 @@ export default class Timer
         this.callback = callback;
         this.delay = delay;
     }
+
+    /**
+     * Start the timer
+     */
+    public start()
+    {
+        this.intervalId = setInterval(this.callback, this.delay);
+    }
     }
