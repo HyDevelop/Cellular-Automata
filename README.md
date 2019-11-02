@@ -14,25 +14,22 @@
 </h1>
 
 
-## Project setup
+### Project setup
+
+If you just cloned the project, do this first:
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+(Of course, if you didn't install npm, you have to install it)
+
+#### Start Debug Web Server
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+#### Other Notes
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Sources are in `./src/`, other files are config or envirmental files. Also ignore `main.ts`, `shims...d.ts`. Those are auto-generated files. Main game logic are in `./src/logic/`. 
