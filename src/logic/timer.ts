@@ -17,4 +17,13 @@ export default class Timer
     {
         this.intervalId = setInterval(this.callback, this.delay);
     }
+
+    /**
+     * Stop the timer
+     */
+    public stop()
+    {
+        clearInterval(this.intervalId);
+        this.intervalId = -1;
+    }
     }
