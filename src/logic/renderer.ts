@@ -79,7 +79,6 @@ export default class Renderer
         // Loop through all x values
         for (let x = BLOCK_LEN; x < width; x += BLOCK_FULL_LEN)
         {
-            console.log(x);
             // Draw line
             this.drawRect(GRID_LINE_COLOR, {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
         }
