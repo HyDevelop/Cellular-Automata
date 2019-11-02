@@ -46,6 +46,8 @@ export default class Timer
      */
     public restart()
     {
+        if (!this.started) return;
+
         this.stop();
         this.start();
     }
