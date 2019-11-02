@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Renderer></Renderer>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import {Component, Vue} from 'vue-property-decorator';
+import Renderer from "@/Renderer.vue";
 
 @Component({
   components: {
-    HelloWorld,
+    Renderer,
   },
 })
 export default class App extends Vue {}

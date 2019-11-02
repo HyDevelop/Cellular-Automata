@@ -5,9 +5,11 @@
 </template>
 
 <script lang="ts">
-    export default class Renderer
+    import {Vue} from "vue-property-decorator";
+
+    export default class Renderer extends Vue
     {
-        
+
     }
 </script>
 
