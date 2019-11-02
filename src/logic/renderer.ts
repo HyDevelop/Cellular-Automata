@@ -33,6 +33,16 @@ export default class Renderer
         this.context = canvas.getContext('2d');
     }
 
+    get width()
+    {
+        return this.canvas.width;
+    }
+
+    get height()
+    {
+        return this.canvas.height;
+    }
+
     /**
      * Set frame
      *
