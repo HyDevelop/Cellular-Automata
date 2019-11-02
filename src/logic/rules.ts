@@ -48,7 +48,7 @@ export default class Rules
      * @param condition
      * @param aliveCount
      */
-    public static applyCondition(condition: Condition, aliveCount: number): boolean
+    private static applyCondition(condition: Condition, aliveCount: number): boolean
     {
         switch (condition.operator)
         {
