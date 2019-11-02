@@ -1,4 +1,12 @@
 
+interface Box
+{
+    x: number
+    y: number
+    xLen: number
+    yLen: number
+}
+
 export default class Renderer
 {
     private canvas: any;
