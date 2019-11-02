@@ -7,6 +7,16 @@ export interface Box
     yLen: number
 }
 
+// Constant configurations
+const GRID_LINE_COLOR = '#5f5f5f';
+const GRID_LINE_LEN = 1;
+const BORDER_COLOR = '#969696';
+const BORDER_LEN = 2;
+const BLOCK_LEN = 9;
+
+// Computed
+const BLOCK_FULL_LEN = BLOCK_LEN + GRID_LINE_LEN;
+
 export default class Renderer
 {
     private canvas: any;
