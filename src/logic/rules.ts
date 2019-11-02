@@ -16,12 +16,35 @@ export interface Condition
 export default class Rules
 {
     /**
+     * Apply rules
+     *
+     * @param rules
+     * @param nearby 9*9 points nearby
+     */
+    public static apply(rules: Rule[], nearby: Cell[][]): Status
+    {
+        // Loop through rules
+        for (let rule of rules)
+        {
+            // A rule applies
+            if (Rules.check(rule, nearby))
+            {
+                // Status becomes the result of the rule
+                return rule.result;
+            }
+        }
+
+        // Status unchanged
+        return nearby[1][1].status;
+    }
+
+    /**
      * Check if a rule apply
      *
      * @param rule
      * @param nearby
      */
-    public static apply(rule: Rule, nearby: Cell[][]): boolean
+    public static check(rule: Rule, nearby: Cell[][]): boolean
     {
         // Check self status
         if (nearby[1][1].status !== rule.selfStatus) return false;
@@ -32,7 +55,7 @@ export default class Rules
         // Apply conditions
         for (let condition of rule.conditions)
         {
-            if (!this.applyCondition(condition, aliveCount))
+            if (!this.checkCondition(condition, aliveCount))
             {
                 return false;
             }
@@ -48,7 +71,7 @@ export default class Rules
      * @param condition
      * @param aliveCount
      */
-    private static applyCondition(condition: Condition, aliveCount: number): boolean
+    private static checkCondition(condition: Condition, aliveCount: number): boolean
     {
         switch (condition.operator)
         {
