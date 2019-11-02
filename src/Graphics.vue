@@ -4,7 +4,9 @@
             <canvas id="world-canvas"></canvas>
         </div>
 
-        <el-button type="primary" plain>Update</el-button>
+        <div id="controls">
+            <el-button type="primary" plain>Update</el-button>
+        </div>
     </div>
 </template>
 
@@ -56,5 +58,11 @@
 
         // Rounded corners
         border-radius: 10px;
+    }
+
+    #controls
+    {
+        // Alignment
+        margin: 10px;
     }
 </style>
