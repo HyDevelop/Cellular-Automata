@@ -24,4 +24,15 @@ export default class Renderer
         this.context = canvas.getContext('2d');
     }
 
+    /**
+     * Draw an rectangle
+     *
+     * @param color
+     * @param box
+     */
+    public drawRect(color: string, box: Box)
+    {
+        this.context.fillStyle = color;
+        this.context.fillRect(box.x, box.y, box.xLen, box.yLen);
+    }
 }
