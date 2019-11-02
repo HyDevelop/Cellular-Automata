@@ -13,11 +13,15 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
     import Renderer from '@/logic/renderer';
+    import World from "@/logic/world";
+    import Rules from '@/logic/rules';
+    import Presets from '@/logic/presets';
 
     @Component
     export default class Graphics extends Vue
     {
         renderer: Renderer;
+        world: World;
 
         mounted()
         {
@@ -30,6 +34,17 @@
 
             // Draw grid
             this.renderer.drawGrid();
+
+            // Create world
+            this.world = new World(
+            {
+                name: 'Test',
+                width: 1000,
+                height: 500,
+                rules: Rules.conway,
+                presetCells: new Presets({x: 500, y: 250}).R_PENTOMINO,
+                onUpdate: cell => this.renderer.drawCell(cell)
+            })
         }
     }
 </script>
