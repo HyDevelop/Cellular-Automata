@@ -36,7 +36,7 @@ export default class Timer
     public stop()
     {
         if (!this.started) return;
-        
+
         clearInterval(this.intervalId);
         this.intervalId = -1;
     }
@@ -48,6 +48,15 @@ export default class Timer
     {
         this.stop();
         this.start();
+    }
+
+    /**
+     * Toggle start / stop states
+     */
+    public toggle()
+    {
+        if (this.started) stop();
+        else this.start();
     }
 
     /**
