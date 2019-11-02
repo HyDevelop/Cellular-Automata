@@ -7,7 +7,7 @@ export interface Box
     yLen: number
 }
 
-export interface Block
+export interface GridBlock
 {
     gridX: number
     gridY: number
@@ -102,7 +102,7 @@ export default class Renderer
      * @param color
      * @param block
      */
-    public drawGridBlock(color: string, block: Block)
+    public drawGridBlock(color: string, block: GridBlock)
     {
         this.drawRect(color, {x: block.gridX * BLOCK_FULL_LEN, y: block.gridY * BLOCK_FULL_LEN,
             xLen: BLOCK_LEN, yLen: BLOCK_LEN})
