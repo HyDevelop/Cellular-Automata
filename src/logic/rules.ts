@@ -16,7 +16,7 @@ export interface Condition
 export default class Rules
 {
     /**
-     * Apply a rule
+     * Check if a rule apply
      *
      * @param rule
      * @param nearby
