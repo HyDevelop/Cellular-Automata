@@ -1,3 +1,4 @@
+import {Cell} from '@/logic/world';
 
 export interface Box
 {
@@ -108,5 +109,15 @@ export default class Renderer
     {
         this.drawRect(color, {x: block.gridX * BLOCK_FULL_LEN, y: block.gridY * BLOCK_FULL_LEN,
             xLen: BLOCK_LEN, yLen: BLOCK_LEN})
+    }
+
+    /**
+     * Get the supposed rendering color of a cell
+     *
+     * @param cell
+     */
+    public getCellColor(cell: Cell): string
+    {
+        return cell.status.alive ? CELL_ALIVE : CELL_DEAD;
     }
 }
