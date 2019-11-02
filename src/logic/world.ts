@@ -40,6 +40,10 @@ export interface Cell
     status: Status
 }
 
+// Those constants are for memory optimizations
+export const STATUS_ALIVE: Status = {alive: true};
+export const STATUS_DEAD: Status = {alive: false};
+
 export default class World
 {
     // Default status
