@@ -50,7 +50,7 @@ export default class Rules
         if (nearby[1][1].status !== rule.selfStatus) return false;
 
         // Count alive
-        let aliveCount = nearby.flat().filter(c => c.status.alive).length - 1;
+        let aliveCount = nearby.flat().filter(c => c.status.alive).length;
 
         // Apply conditions
         for (let condition of rule.conditions)
