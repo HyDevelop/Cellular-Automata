@@ -165,20 +165,27 @@ export default class World
     {
         this.updateActivePoints();
 
-        // Copy old active points list
-        let oldActivePoints = this.activePoints.slice();
+        // Points to update
+        let pointsToUpdate = [];
 
         // Loop through active points
-        for (let point of oldActivePoints)
+        for (let point of this.activePoints)
         {
             // Get new status
             let newStatus = Rules.apply(this.config.rules, this.getNearbyCells(point));
 
+            // Add to update list
+            pointsToUpdate.push({point: point, status: newStatus});
+        }
+
+        // Update the points
+        for (let point of pointsToUpdate)
+        {
             // Set new status
-            this.setCellStatus(point, newStatus);
+            this.setCellStatus(point.point, point.status);
 
             // Add active point
-            this.activePoints.push(point);
+            this.activePoints.push(point.point);
         }
     }
 }
