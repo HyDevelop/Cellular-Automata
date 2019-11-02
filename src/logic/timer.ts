@@ -11,6 +11,17 @@ export default class Timer
     }
 
     /**
+     * Set delay
+     *
+     * @param delay
+     */
+    public setDelay(delay: number)
+    {
+        this.delay = delay;
+        this.restart();
+    }
+
+    /**
      * Start the timer
      */
     public start()
