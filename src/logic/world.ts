@@ -71,7 +71,6 @@ export default class World
         config.presetCells.forEach(cell =>
         {
             this.setPoint(cell.point, cell.status);
-            this.activePoints.push(cell.point)
         });
     }
 
