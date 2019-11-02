@@ -26,6 +26,7 @@ export default class Timer
      */
     public start()
     {
+        if (this.started) stop();
         this.intervalId = setInterval(this.callback, this.delay);
     }
 
@@ -34,6 +35,8 @@ export default class Timer
      */
     public stop()
     {
+        if (!this.started) return;
+        
         clearInterval(this.intervalId);
         this.intervalId = -1;
     }
