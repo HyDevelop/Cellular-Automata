@@ -165,8 +165,11 @@ export default class World
     {
         this.updateActivePoints();
 
+        // Copy old active points list
+        let oldActivePoints = this.activePoints.slice();
+
         // Loop through active points
-        for (let point of this.activePoints)
+        for (let point of oldActivePoints)
         {
             // Get new status
             let newStatus = Rules.apply(this.config.rules, this.getNearbyCells(point));
