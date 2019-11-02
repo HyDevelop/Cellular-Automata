@@ -45,7 +45,7 @@
                 width: 1000,
                 height: 500,
                 rules: Rules.conway,
-                presetCells: new Presets({x: 500, y: 250}).R_PENTOMINO,
+                presetCells: new Presets({x: 50, y: 25}).R_PENTOMINO,
                 onUpdate: cell => this.renderer.drawCell(cell)
             })
         }
