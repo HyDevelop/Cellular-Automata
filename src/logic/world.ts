@@ -1,4 +1,4 @@
-import {Rule} from "@/logic/rules";
+import Rules, {Rule} from "@/logic/rules";
 
 /**
  * Config of a world
@@ -125,6 +125,7 @@ export default class World
         // Only unique values
         this.activePoints = [...new Set(alivePoints)];
     }
+
     /**
      * Get nearby 9*9 cells
      *
@@ -147,5 +148,26 @@ export default class World
         }
 
         return result;
+    }
+
+    /**
+     * Update frame
+     */
+    public act()
+    {
+        this.updateActivePoints();
+
+        // Loop through active points
+        for (let point of this.activePoints)
+        {
+            // Get new status
+            let newStatus = Rules.apply(this.config.rules, this.getNearbyCells(point));
+
+            // Set new status
+            this.setPoint(point, newStatus);
+
+            // Add active point
+            this.activePoints.push(point);
+        }
     }
 }
