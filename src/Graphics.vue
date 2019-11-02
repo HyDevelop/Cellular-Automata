@@ -19,8 +19,11 @@
             let canvas = document.querySelector('#world-canvas');
             this.renderer = new Renderer(canvas);
 
-            // Test
-            this.renderer.drawRect('red', {x: 0, y: 0, xLen: 10, yLen: 10})
+            // Set frame
+            this.renderer.setFrame(1000, 500);
+
+            // Draw grid
+            this.renderer.drawGrid();
         }
     }
 </script>
