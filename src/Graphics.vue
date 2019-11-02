@@ -33,6 +33,9 @@
     {
         width: 100%;
         height: 100%;
+
+        // Dark background
+        background: #000000;
     }
 
     #graphics
