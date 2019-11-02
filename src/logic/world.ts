@@ -112,7 +112,7 @@ export default class World
         // Callback
         if (this.config.onUpdate != null)
         {
-            this.config.onUpdate({point, status});
+            this.config.onUpdate(cell);
         }
     }
 
