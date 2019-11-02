@@ -61,4 +61,35 @@ export default class Rules
 
         throw Error('Condition unrecognized: ' + condition.operator);
     }
+
+    /**
+     * Conway rules
+     */
+    public static conway: Rule[] =
+    [
+        // Under population
+        {
+            selfStatus: {alive: true},
+            conditions: [{operator: "<", aliveCount: 2}],
+            result: {alive: false}
+        },
+        // Stay alive
+        {
+            selfStatus: {alive: true},
+            conditions: [{operator: ">=", aliveCount: 2}, {operator: "<", aliveCount: 4}],
+            result: {alive: true}
+        },
+        // Over population
+        {
+            selfStatus: {alive: true},
+            conditions: [{operator: ">=", aliveCount: 4}],
+            result: {alive: false}
+        },
+        // Reproduce
+        {
+            selfStatus: {alive: false},
+            conditions: [{operator: "==", aliveCount: 3}],
+            result: {alive: true}
+        },
+    ]
 }
