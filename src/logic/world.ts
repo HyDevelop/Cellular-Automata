@@ -108,4 +108,27 @@ export default class World
     {
         this.grid[point.x][point.y] = status;
     }
+
+    /**
+     * Get nearby 9*9 cells
+     *
+     * @param point Point in the center
+     */
+    private getNearbyCells(point: Point): Cell[][]
+    {
+        let result: Cell[][] = [];
+
+        // Loop through 9*9
+        for (let x = point.x - 1; x <= point.x + 1; x++)
+        {
+            let row = [];
+
+            for (let y = point.y - 1; y <= point.y + 1; y++)
+            {
+                row.push(this.getCell({x, y}))
+            }
+        }
+
+        return result;
+    }
 }
