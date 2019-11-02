@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Renderer></Renderer>
+    <Graphics></Graphics>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import Renderer from '@/Renderer.vue';
+import Graphics from '@/Graphics.vue';
 
 @Component({
   components: {
-    Renderer,
+    Graphics,
   },
 })
 export default class App extends Vue {}
