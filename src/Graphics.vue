@@ -6,6 +6,8 @@
 
         <div id="controls">
             <el-button type="info" plain @click="updateButton">Update</el-button>
+            <el-button type="info" plain @click="startButton">Start</el-button>
+            <el-button type="info" plain @click="stopButton">Stop</el-button>
         </div>
     </div>
 </template>
@@ -61,6 +63,16 @@
         updateButton()
         {
             this.world.act()
+        }
+
+        startButton()
+        {
+            this.timer.start();
+        }
+
+        stopButton()
+        {
+            this.timer.stop();
         }
     }
 </script>
