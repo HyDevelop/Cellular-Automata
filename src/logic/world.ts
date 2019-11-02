@@ -110,6 +110,14 @@ export default class World
     }
 
     /**
+     * Update alive points
+     */
+    private updateActivePoints()
+    {
+        // Filter all of the alive points from previous active points
+        let alivePoints = this.activePoints.filter(point => this.getPoint(point).alive);
+    }
+    /**
      * Get nearby 9*9 cells
      *
      * @param point Point in the center
