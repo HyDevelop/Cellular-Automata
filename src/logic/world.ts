@@ -150,6 +150,9 @@ export default class World
                 // Wrap coordinates around width and height
                 row.push(this.getCell({x: x % this.config.width, y: y % this.config.height}))
             }
+
+            // Add row to result
+            result.push(row);
         }
 
         return result;
