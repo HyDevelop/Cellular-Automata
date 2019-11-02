@@ -1,5 +1,5 @@
 
-interface Box
+export interface Box
 {
     x: number
     y: number
