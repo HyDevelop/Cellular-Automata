@@ -72,6 +72,12 @@
 </script>
 
 <style lang="scss" scoped>
+    #graphics
+    {
+        // Alignment
+        margin: 0 20px;
+    }
+
     #world-canvas
     {
         width: 100%;
