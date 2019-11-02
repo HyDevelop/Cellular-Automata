@@ -24,7 +24,8 @@ export default class Rules
     public static apply(rules: Rule[], nearby: Cell[][]): Status
     {
         // Count alive
-        let aliveCount = nearby.flat().filter(c => c.status.alive).length - 1;
+        let selfAlive = nearby[1][1].status.alive;
+        let aliveCount = nearby.flat().filter(c => c.status.alive).length - (selfAlive ? 1 : 0);
 
         console.log(nearby[1][1].point);
         console.log(`${aliveCount}`);
@@ -33,7 +34,7 @@ export default class Rules
         for (let rule of rules)
         {
             // A rule applies
-            if (Rules.check(rule, nearby[1][1].status.alive, aliveCount))
+            if (Rules.check(rule, selfAlive, aliveCount))
             {
                 // Status becomes the result of the rule
                 return rule.result;
