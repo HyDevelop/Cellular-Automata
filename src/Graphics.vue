@@ -60,7 +60,7 @@
             });
 
             // Create timer
-            this.timer = new Timer(() => this.world.act(), 100);
+            this.timer = new Timer(() => this.world.act(), this.inputDelay);
         }
 
         /**
@@ -74,6 +74,11 @@
         toggle()
         {
             this.timer.toggle();
+        }
+
+        frameDelayTextbox()
+        {
+            this.timer.setDelay(this.inputDelay)
         }
     }
 </script>
