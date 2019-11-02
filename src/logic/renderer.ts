@@ -95,4 +95,16 @@ export default class Renderer
             this.drawRect(GRID_LINE_COLOR, {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
         }
     }
+
+    /**
+     * Draw a block on the grid
+     *
+     * @param color
+     * @param block
+     */
+    public drawGridBlock(color: string, block: Block)
+    {
+        this.drawRect(color, {x: block.gridX * BLOCK_FULL_LEN, y: block.gridY * BLOCK_FULL_LEN,
+            xLen: BLOCK_LEN, yLen: BLOCK_LEN})
+    }
 }
