@@ -36,6 +36,9 @@
 
         // Dark background
         background: #000000;
+
+        // Rounded corners
+        border-radius: 10px;
     }
 
     #graphics
