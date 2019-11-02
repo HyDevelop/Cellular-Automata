@@ -5,13 +5,17 @@
         </div>
 
         <div id="controls">
-            <el-input v-model="inputDelay" type="number" @change="frameDelayTextbox">
-                <template slot="prepend">Frame Delay: </template>
-            </el-input>
             <el-button type="info" plain @click="updateButton">Update</el-button>
             <el-button v-if="timer != null" type="info" plain @click="toggle">
                 {{timer.started ? 'Stop' : 'Start'}}
             </el-button>
+
+            <div style="display: inline-block; width: 200px; margin-left: 10px">
+                <el-input v-model="inputDelay" @change="frameDelayTextbox" type="number"
+                          id="input-delay">
+                    <template slot="prepend">Frame Delay: </template>
+                </el-input>
+            </div>
         </div>
     </div>
 </template>
@@ -119,5 +123,11 @@
     {
         // Alignment
         margin: 30px 10px 10px;
+    }
+
+    #input-delay
+    {
+        width: 150px;
+        margin: 0 10px 0 0;
     }
 </style>
