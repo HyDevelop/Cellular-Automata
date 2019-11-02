@@ -108,6 +108,12 @@ export default class World
     private setPoint(point: Point, status: Status)
     {
         this.grid[point.x][point.y] = status;
+
+        // Callback
+        if (this.config.onUpdate != null)
+        {
+            this.config.onUpdate({point, status});
+        }
     }
 
     /**
