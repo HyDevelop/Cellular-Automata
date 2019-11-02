@@ -23,11 +23,17 @@ export default class Rules
      */
     public static apply(rules: Rule[], nearby: Cell[][]): Status
     {
+        // Count alive
+        let aliveCount = nearby.flat().filter(c => c.status.alive).length - 1;
+
+        console.log(nearby[1][1].point);
+        console.log(`${aliveCount}`);
+
         // Loop through rules
         for (let rule of rules)
         {
             // A rule applies
-            if (Rules.check(rule, nearby))
+            if (Rules.check(rule, nearby[1][1].status.alive, aliveCount))
             {
                 // Status becomes the result of the rule
                 return rule.result;
@@ -42,15 +48,13 @@ export default class Rules
      * Check if a rule apply
      *
      * @param rule
-     * @param nearby
+     * @param selfAlive
+     * @param aliveCount
      */
-    public static check(rule: Rule, nearby: Cell[][]): boolean
+    public static check(rule: Rule, selfAlive: boolean, aliveCount: number): boolean
     {
         // Check self status
-        if (nearby[1][1].status.alive != rule.selfStatus.alive) return false;
-
-        // Count alive
-        let aliveCount = nearby.flat().filter(c => c.status.alive).length;
+        if (selfAlive != rule.selfStatus.alive) return false;
 
         // Apply conditions
         for (let condition of rule.conditions)
