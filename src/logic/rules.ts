@@ -27,9 +27,6 @@ export default class Rules
         let selfAlive = nearby[1][1].status.alive;
         let aliveCount = nearby.flat().filter(c => c.status.alive).length - (selfAlive ? 1 : 0);
 
-        console.log(nearby[1][1].point);
-        console.log(`${aliveCount}`);
-
         // Loop through rules
         for (let rule of rules)
         {
