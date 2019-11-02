@@ -1,4 +1,18 @@
-# cellular-automata
+<h1 align="center">
+  <br>
+  <br>
+    <img src="https://i.imgur.com/YpMLlfv.png"></img>
+  <h4 align="center">
+  2019-2020 Computer Club Project. Work in progress.
+  </h4>
+  <!--h5 align="center">
+    <a href="#maven">Maven</a>&nbsp;&nbsp;
+  </h5-->
+  <br>
+  <br>
+  <br>
+</h1>
+
 
 ## Project setup
 ```
