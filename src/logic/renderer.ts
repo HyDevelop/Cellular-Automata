@@ -19,6 +19,8 @@ const GRID_LINE_LEN = 1;
 const BORDER_COLOR = '#969696';
 const BORDER_LEN = 2;
 const BLOCK_LEN = 9;
+const CELL_DEAD = '#000000';
+const CELL_ALIVE = '#c8c8c8';
 
 // Computed
 const BLOCK_FULL_LEN = BLOCK_LEN + GRID_LINE_LEN;
