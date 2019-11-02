@@ -71,6 +71,7 @@ export default class World
         config.presetCells.forEach(cell =>
         {
             this.setPoint(cell.point, cell.status);
+            this.activePoints.push(cell.point);
         });
     }
 
@@ -102,12 +103,10 @@ export default class World
      *
      * @param point
      * @param status
-     * @param record Record to active points or not
      */
-    private setPoint(point: Point, status: Status, record?: boolean)
+    private setPoint(point: Point, status: Status)
     {
         this.grid[point.x][point.y] = status;
-        if (record) this.activePoints.push(point);
     }
 
     /**
