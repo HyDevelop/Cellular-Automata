@@ -10,8 +10,8 @@ export interface WorldConfig
     width: number
     height: number
     rules: Rule[]
-    states: any
     presetCells: Cell[]
+    onUpdate: ((cell: Cell) => void) | undefined
 }
 
 /**
