@@ -58,9 +58,8 @@ export default class World
      * Construct a world with a defined world config
      *
      * @param config
-     * @constructor
      */
-    public World(config: WorldConfig)
+    constructor(config: WorldConfig)
     {
         this.config = config;
 
