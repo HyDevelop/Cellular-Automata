@@ -5,7 +5,7 @@
         </div>
 
         <div id="controls">
-            <el-button type="primary" plain>Update</el-button>
+            <el-button type="info" plain>Update</el-button>
         </div>
     </div>
 </template>
@@ -63,6 +63,6 @@
     #controls
     {
         // Alignment
-        margin: 10px;
+        margin: 30px 10px 10px;
     }
 </style>
