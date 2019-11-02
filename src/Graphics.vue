@@ -13,7 +13,7 @@
     {
         renderer: Renderer;
 
-        created()
+        mounted()
         {
             // Find canvas and create renderer
             let canvas = document.querySelector('#world-canvas');
