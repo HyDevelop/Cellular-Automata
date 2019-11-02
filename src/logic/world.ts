@@ -1,4 +1,4 @@
-import Rules, {Rule} from "@/logic/rules";
+import Rules, {Rule} from '@/logic/rules';
 
 /**
  * Config of a world

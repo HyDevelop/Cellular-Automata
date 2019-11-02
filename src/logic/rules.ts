@@ -1,4 +1,4 @@
-import {Cell, Status} from "@/logic/world";
+import {Cell, Status} from '@/logic/world';
 
 export interface Rule
 {
@@ -93,25 +93,25 @@ export default class Rules
         // Under population
         {
             selfStatus: {alive: true},
-            conditions: [{operator: "<", aliveCount: 2}],
+            conditions: [{operator: '<', aliveCount: 2}],
             result: {alive: false}
         },
         // Stay alive
         {
             selfStatus: {alive: true},
-            conditions: [{operator: ">=", aliveCount: 2}, {operator: "<", aliveCount: 4}],
+            conditions: [{operator: '>=', aliveCount: 2}, {operator: '<', aliveCount: 4}],
             result: {alive: true}
         },
         // Over population
         {
             selfStatus: {alive: true},
-            conditions: [{operator: ">=", aliveCount: 4}],
+            conditions: [{operator: '>=', aliveCount: 4}],
             result: {alive: false}
         },
         // Reproduce
         {
             selfStatus: {alive: false},
-            conditions: [{operator: "==", aliveCount: 3}],
+            conditions: [{operator: '==', aliveCount: 3}],
             result: {alive: true}
         },
     ]
