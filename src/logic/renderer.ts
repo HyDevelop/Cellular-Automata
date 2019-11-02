@@ -77,14 +77,15 @@ export default class Renderer
         let height = this.height;
 
         // Loop through all x values
-        for (let x = 1; x < width; x += BLOCK_FULL_LEN)
+        for (let x = BLOCK_LEN; x < width; x += BLOCK_FULL_LEN)
         {
+            console.log(x);
             // Draw line
             this.drawRect(GRID_LINE_COLOR, {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
         }
 
         // Loop through all y values
-        for (let y = 1; y < height; y += BLOCK_FULL_LEN)
+        for (let y = BLOCK_LEN; y < height; y += BLOCK_FULL_LEN)
         {
             this.drawRect(GRID_LINE_COLOR, {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
         }
