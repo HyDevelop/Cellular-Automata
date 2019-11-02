@@ -31,4 +31,9 @@
         width: 100%;
         height: 100%;
     }
+
+    #graphics
+    {
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    }
 </style>
