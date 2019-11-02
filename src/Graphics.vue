@@ -5,9 +5,10 @@
 </template>
 
 <script lang="ts">
-    import {Vue} from 'vue-property-decorator';
-    import Renderer from "@/logic/renderer";
+    import {Component, Vue} from 'vue-property-decorator';
+    import Renderer from '@/logic/renderer';
 
+    @Component
     export default class Graphics extends Vue
     {
         renderer: Renderer;
