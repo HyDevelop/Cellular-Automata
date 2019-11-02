@@ -6,8 +6,7 @@
 
         <div id="controls">
             <el-button type="info" plain @click="updateButton">Update</el-button>
-            <el-button type="info" plain @click="startButton">Start</el-button>
-            <el-button type="info" plain @click="stopButton">Stop</el-button>
+            <el-button type="info" plain @click="toggle">{{timer.started ? 'Stop' : 'Start'}}</el-button>
         </div>
     </div>
 </template>
@@ -65,14 +64,9 @@
             this.world.act()
         }
 
-        startButton()
+        toggle()
         {
-            this.timer.start();
-        }
-
-        stopButton()
-        {
-            this.timer.stop();
+            this.timer.toggle();
         }
     }
 </script>
