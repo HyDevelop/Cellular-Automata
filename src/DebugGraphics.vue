@@ -42,8 +42,8 @@
             this.world = new World(
             {
                 name: 'Test',
-                width: 1000,
-                height: 500,
+                width: 1000 / 10,
+                height: 500 / 10,
                 rules: Rules.conway,
                 presetCells: new Presets({x: 50, y: 25}).R_PENTOMINO,
                 onUpdate: cell => this.renderer.drawCell(cell)
