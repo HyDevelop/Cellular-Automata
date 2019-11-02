@@ -99,7 +99,7 @@ export default class Rules
         // Stay alive
         {
             selfStatus: {alive: true},
-            conditions: [{operator: '>=', aliveCount: 2}, {operator: '<', aliveCount: 4}],
+            conditions: [{operator: '>=', aliveCount: 2}, {operator: '<=', aliveCount: 3}],
             result: {alive: true}
         },
         // Over population
