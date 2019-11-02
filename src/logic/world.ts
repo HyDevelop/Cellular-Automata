@@ -88,6 +88,17 @@ export default class World
     }
 
     /**
+     * Get value of a point as a cell
+     *
+     * @param point
+     * @return Cell
+     */
+    private getCell(point: Point): Cell
+    {
+        return {point: point, status: this.getPoint(point)};
+    }
+
+    /**
      * Set value of a point
      *
      * @param point
