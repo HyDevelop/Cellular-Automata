@@ -116,6 +116,9 @@ export default class World
     {
         // Filter all of the alive points from previous active points
         let alivePoints = this.activePoints.filter(point => this.getPoint(point).alive);
+
+        // Put nearby points in.
+        alivePoints = alivePoints.flatMap(point => this.getNearbyCells(point).flat().map(cell => cell.point));
     }
     /**
      * Get nearby 9*9 cells
