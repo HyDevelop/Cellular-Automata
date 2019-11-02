@@ -75,7 +75,7 @@ export default class World
         this.activePoints = [];
         config.presetCells.forEach(cell =>
         {
-            this.setPoint(cell.point, cell.status);
+            this.setCellStatus(cell.point, cell.status);
             this.activePoints.push(cell.point);
         });
     }
@@ -86,7 +86,7 @@ export default class World
      * @param point
      * @return Cell
      */
-    private getPoint(point: Point): Cell
+    private getCell(point: Point): Cell
     {
         let cell = this.grid[point.x][point.y];
 
@@ -101,10 +101,10 @@ export default class World
      * @param point
      * @param status
      */
-    private setPoint(point: Point, status: Status)
+    private setCellStatus(point: Point, status: Status)
     {
         // Get cell
-        let cell = this.getPoint(point);
+        let cell = this.getCell(point);
 
         // Update cell status
         cell.status = status.alive ? STATUS_ALIVE : STATUS_DEAD;
@@ -122,7 +122,7 @@ export default class World
     private updateActivePoints()
     {
         // Filter all of the alive points from previous active points
-        let alivePoints = this.activePoints.filter(point => this.getPoint(point).alive);
+        let alivePoints = this.activePoints.filter(point => this.getCell(point).status.alive);
 
         // Put nearby points in.
         alivePoints = alivePoints.flatMap(point => this.getNearbyCells(point).flat().map(cell => cell.point));
@@ -169,7 +169,7 @@ export default class World
             let newStatus = Rules.apply(this.config.rules, this.getNearbyCells(point));
 
             // Set new status
-            this.setPoint(point, newStatus);
+            this.setCellStatus(point, newStatus);
 
             // Add active point
             this.activePoints.push(point);
