@@ -1,4 +1,11 @@
-import {Cell, Point} from '@/logic/world';
+import {Cell, Point, Status, STATUS_ALIVE, STATUS_DEAD} from '@/logic/world';
+
+export interface Pattern
+{
+    pattern: string
+    length: number
+    height: number
+}
 
 export default class Presets
 {
@@ -16,20 +23,37 @@ export default class Presets
      *
      * @param offsetX
      * @param offsetY
+     * @param status
      */
-    private cell(offsetX: number, offsetY: number): Cell
+    private cell(offsetX: number, offsetY: number, status: Status): Cell
     {
-        return {point: {x: this.x + offsetX, y: this.y + offsetY}, status: {alive: true}}
+        return {point: {x: this.x + offsetX, y: this.y + offsetY}, status: status}
     }
 
-    public get R_PENTOMINO(): Cell[]
+    /**
+     * Parse pattern
+     *
+     * @param pattern
+     */
+    public parse(pattern: Pattern): Cell[]
     {
-        return [
-            this.cell(1, 0),
-            this.cell(0, 1),
-            this.cell(1, 1),
-            this.cell(1, 2),
-            this.cell(2, 2),
-        ];
+        // Split string into 2d array
+        let lines: string[] = pattern.pattern.split('\n');
+        let result: Cell[] = [];
+
+        let centerX = Math.floor(pattern.length / 2);
+        let centerY = Math.floor(pattern.height / 2);
+
+        // Loop through lines
+        lines.forEach((line, y) =>
+        {
+            for (let x = 0; x < lines.length; x++)
+            {
+                result.push(this.cell(x - centerX, y - centerY, line.charAt(x) == '#' ? STATUS_ALIVE : STATUS_DEAD))
+            }
+        });
+
+        return result;
     }
+
 }
