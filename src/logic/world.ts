@@ -103,10 +103,12 @@ export default class World
      *
      * @param point
      * @param status
+     * @param record Record to active points or not
      */
-    private setPoint(point: Point, status: Status)
+    private setPoint(point: Point, status: Status, record?: boolean)
     {
         this.grid[point.x][point.y] = status;
+        if (record) this.activePoints.push(point);
     }
 
     /**
