@@ -1,3 +1,5 @@
+import {Rule} from "@/logic/rules";
+
 /**
  * Config of a world
  */
@@ -7,7 +9,7 @@ export interface WorldConfig
     name: string
     width: number
     height: number
-    rules: any
+    rules: Rule[]
     states: any
     presetCells: Cell[]
 }
