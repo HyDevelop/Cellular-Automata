@@ -26,4 +26,13 @@ export default class Timer
         clearInterval(this.intervalId);
         this.intervalId = -1;
     }
+
+    /**
+     * Restart the timer
+     */
+    public restart()
+    {
+        this.stop();
+        this.start();
     }
+}
