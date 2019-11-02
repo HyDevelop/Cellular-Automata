@@ -125,7 +125,8 @@ export default class World
 
             for (let y = point.y - 1; y <= point.y + 1; y++)
             {
-                row.push(this.getCell({x, y}))
+                // Wrap coordinates around width and height
+                row.push(this.getCell({x: x % this.config.width, y: y % this.config.height}))
             }
         }
 
