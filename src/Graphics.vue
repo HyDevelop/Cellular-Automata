@@ -6,17 +6,17 @@
 
 <script lang="ts">
     import {Vue} from 'vue-property-decorator';
+    import Renderer from "@/logic/renderer";
 
     export default class Graphics extends Vue
     {
-        canvas: any;
-        c: any;
+        renderer: Renderer;
 
         created()
         {
-            // Find canvas and create context
-            this.canvas = document.querySelector('#world-canvas');
-            this.c = this.canvas.getContext('2d');
+            // Find canvas and create renderer
+            let canvas = document.querySelector('#world-canvas');
+            this.renderer = new Renderer(canvas);
         }
 
 
