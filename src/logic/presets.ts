@@ -74,4 +74,11 @@ export default class Presets
     {
         return this.parse({width: 3, height: 3, pattern: PATTERN_R_PENTOMINO})
     }
+
+    public get CELLULAR_AUTOMATA(): Cell[]
+    {
+        let banner = this.parse({width: 114, height: 6, pattern: PATTERN_CELLULAR_AUTOMATA});
+
+        return banner;
+    }
 }
