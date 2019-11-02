@@ -21,4 +21,18 @@ export default class Presets
     {
         return {point: {x: this.x + offsetX, y: this.y + offsetY}, status: {alive: true}}
     }
+
+    public R_PENTOMINO(center: Point): Cell[]
+    {
+        const x = center.x;
+        const y = center.y;
+
+        return [
+            this.cell(1, 0),
+            this.cell(0, 1),
+            this.cell(1, 1),
+            this.cell(1, 2),
+            this.cell(2, 2),
+        ];
+    }
 }
