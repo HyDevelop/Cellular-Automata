@@ -47,7 +47,7 @@ export default class Rules
     public static check(rule: Rule, nearby: Cell[][]): boolean
     {
         // Check self status
-        if (nearby[1][1].status !== rule.selfStatus) return false;
+        if (nearby[1][1].status.alive != rule.selfStatus.alive) return false;
 
         // Count alive
         let aliveCount = nearby.flat().filter(c => c.status.alive).length;
