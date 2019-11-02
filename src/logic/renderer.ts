@@ -24,6 +24,18 @@ export default class Renderer
     }
 
     /**
+     * Set frame
+     *
+     * @param width
+     * @param height
+     */
+    public setFrame(width: number, height: number)
+    {
+        this.canvas.width = width;
+        this.canvas.height = height;
+    }
+
+    /**
      * Draw an rectangle
      *
      * @param color
