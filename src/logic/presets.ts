@@ -61,7 +61,7 @@ export default class Presets
         // Loop through lines
         lines.forEach((line, y) =>
         {
-            for (let x = 0; x < lines.length; x++)
+            for (let x = 0; x < line.length; x++)
             {
                 result.push(this.cell(x - centerX, y - centerY, line.charAt(x) == '#' ? STATUS_ALIVE : STATUS_DEAD))
             }
