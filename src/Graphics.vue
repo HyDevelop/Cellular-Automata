@@ -13,15 +13,17 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
     import Renderer from '@/logic/renderer';
-    import World from "@/logic/world";
+    import World from '@/logic/world';
     import Rules from '@/logic/rules';
     import Presets from '@/logic/presets';
+    import Timer from "@/logic/timer";
 
     @Component
     export default class Graphics extends Vue
     {
         renderer: Renderer;
         world: World;
+        timer: Timer;
 
         /**
          * This is called when the page finishes loading
@@ -47,7 +49,10 @@
                 rules: Rules.conway,
                 presetCells: new Presets({x: 50, y: 25}).R_PENTOMINO,
                 onUpdate: cell => this.renderer.drawCell(cell)
-            })
+            });
+
+            // Create timer
+            this.timer = new Timer(() => this.world.act(), 100);
         }
 
         /**
