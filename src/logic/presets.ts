@@ -11,4 +11,14 @@ export default class Presets
         this.y = center.y;
     }
 
+    /**
+     * Make a cell
+     *
+     * @param offsetX
+     * @param offsetY
+     */
+    private cell(offsetX: number, offsetY: number): Cell
+    {
+        return {point: {x: this.x + offsetX, y: this.y + offsetY}, status: {alive: true}}
+    }
 }
