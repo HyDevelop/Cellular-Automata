@@ -56,10 +56,10 @@
             this.world = new World(
             {
                 name: 'Test',
-                width: 1000 / 10,
-                height: 500 / 10,
+                width: 1000 / 5,
+                height: 500 / 5,
                 rules: Rules.conway,
-                presetCells: new Presets({x: 50, y: 25}).R_PENTOMINO,
+                presetCells: new Presets({x: 1000 / 5 / 2, y: 500 / 5 / 2}).CELLULAR_AUTOMATA,
                 onUpdate: cell => this.renderer.drawCell(cell)
             });
 

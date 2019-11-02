@@ -19,7 +19,7 @@ const GRID_LINE_COLOR = '#5f5f5f';
 const GRID_LINE_LEN = 1;
 const BORDER_COLOR = '#969696';
 const BORDER_LEN = 2;
-const BLOCK_LEN = 9;
+const BLOCK_LEN = 4;
 const CELL_DEAD = '#000000';
 const CELL_ALIVE = '#c8c8c8';
 
