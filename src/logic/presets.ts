@@ -3,9 +3,14 @@ import {Cell, Point, Status, STATUS_ALIVE, STATUS_DEAD} from '@/logic/world';
 export interface Pattern
 {
     pattern: string
-    length: number
+    width: number
     height: number
 }
+
+const PATTERN_R_PENTOMINO =
+    '.##' +
+    '##.' +
+    '.#.';
 
 export default class Presets
 {
@@ -41,7 +46,7 @@ export default class Presets
         let lines: string[] = pattern.pattern.split('\n');
         let result: Cell[] = [];
 
-        let centerX = Math.floor(pattern.length / 2);
+        let centerX = Math.floor(pattern.width / 2);
         let centerY = Math.floor(pattern.height / 2);
 
         // Loop through lines
@@ -56,4 +61,8 @@ export default class Presets
         return result;
     }
 
+    public get R_PENTOMINO(): Cell[]
+    {
+        return this.parse({width: 3, height: 3, pattern: PATTERN_R_PENTOMINO})
+    }
 }
