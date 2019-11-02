@@ -55,7 +55,7 @@ export default class Timer
      */
     public toggle()
     {
-        if (this.started) stop();
+        if (this.started) this.stop();
         else this.start();
     }
 
