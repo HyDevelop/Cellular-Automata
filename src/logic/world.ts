@@ -56,7 +56,7 @@ export default class World
     grid: Cell[][];
 
     // Active points (Undefined = no cell)
-    activePoints: Point[];
+    activePoints: Point[] = [];
 
     /**
      * Construct a world with a defined world config
@@ -68,8 +68,7 @@ export default class World
         this.config = config;
 
         // Make empty grid
-        this.grid = new Array(config.width).fill(undefined)
-            .map(() => new Array(config.height).fill(undefined));
+        this.clearGrid();
 
         // Initialize active points
         this.activePoints = [];
@@ -78,6 +77,26 @@ export default class World
             this.setCellStatus(cell.point, cell.status);
             this.activePoints.push(cell.point);
         });
+    }
+
+    /**
+     * Clear the grid
+     */
+    public clearGrid()
+    {
+        // Make empty grid
+        this.grid = new Array(this.config.width).fill(undefined)
+            .map(() => new Array(this.config.height).fill(undefined));
+
+        // Check active zone
+        this.activePoints.forEach(point =>
+        {
+            // Clear point
+            this.setCellStatus(point, STATUS_DEAD);
+        });
+
+        // Clear active points
+        this.activePoints = [];
     }
 
     /**

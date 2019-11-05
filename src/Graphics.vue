@@ -90,16 +90,8 @@
 
         clearScreen()
         {
-            // Create world
-            this.world = new World(
-            {
-                name: 'Test',
-                width: 1000 / 5,
-                height: 500 / 5,
-                rules: Rules.conway,
-                presetCells: [],
-                onUpdate: cell => this.renderer.drawCell(cell)
-            });
+            console.log("Hi");
+            this.world.clearGrid();
         }
     }
 </script>
