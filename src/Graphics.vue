@@ -9,6 +9,9 @@
             <el-button v-if="timer != null" type="info" plain @click="toggle">
                 {{timer.started ? 'Stop' : 'Start'}}
             </el-button>
+            <el-button type="info" plain @click="clearScreen">
+                Clear Screen
+            </el-button>
 
             <div style="display: inline-block; width: 200px; margin-left: 10px">
                 <el-input v-model="inputDelay" @change="frameDelayTextbox" type="number"
@@ -83,6 +86,20 @@
         frameDelayTextbox()
         {
             this.timer.setDelay(this.inputDelay)
+        }
+
+        clearScreen()
+        {
+            // Create world
+            this.world = new World(
+            {
+                name: 'Test',
+                width: 1000 / 5,
+                height: 500 / 5,
+                rules: Rules.conway,
+                presetCells: [],
+                onUpdate: cell => this.renderer.drawCell(cell)
+            });
         }
     }
 </script>
