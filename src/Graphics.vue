@@ -19,6 +19,26 @@
                     <template slot="prepend">Frame Delay: </template>
                 </el-input>
             </div>
+
+            <el-button type="info" plain @click="saveLoad">
+                Save/Load
+            </el-button>
+
+            <el-dialog
+                title="Save / Load"
+                :visible.sync="saveLoadShow"
+                width="30%"
+                :before-close="handleClose">
+                <el-input
+                    type="textarea"
+                    :rows="2"
+                    placeholder="Please input"
+                    v-model="saveLoadText">
+                </el-input>
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="load">Load</el-button>
+                </span>
+            </el-dialog>
         </div>
     </div>
 </template>
@@ -39,6 +59,8 @@
         timer: Timer = null as unknown as Timer;
 
         inputDelay: number = 100;
+        saveLoadText: string = '';
+        saveLoadShow: boolean = false;
 
         /**
          * This is called when the page finishes loading
@@ -92,6 +114,17 @@
         {
             console.log("Hi");
             this.world.clearGrid();
+        }
+
+        saveLoad()
+        {
+            saveLoadShow = true;
+            saveLoadText = world.serializeWorld();
+        }
+
+        load()
+        {
+            world.loadWorld(saveLoadText);
         }
     }
 </script>

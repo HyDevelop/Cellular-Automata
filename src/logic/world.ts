@@ -99,6 +99,23 @@ export default class World
         this.activePoints = [];
     }
 
+    public serializeWorld(): string
+    {
+      return JSON.stringify(this.activePoints.filter(point => this.getCell(point).status.alive))
+    }
+
+    public loadWorld(serializedWorld: string)
+    {
+          let points: Point[] = JSON.parse(serializedWorld);
+
+          //for (let point of points)
+          points.forEach(point =>
+          {
+            this.setCellStatus(point, STATUS_ALIVE);
+            this.activePoints.push(point);
+          });
+    }
+
     /**
      * Get value of a point
      *
