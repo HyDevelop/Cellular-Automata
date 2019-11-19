@@ -27,8 +27,7 @@
             <el-dialog
                 title="Save / Load"
                 :visible.sync="saveLoadShow"
-                width="30%"
-                :before-close="handleClose">
+                width="30%">
                 <el-input
                     type="textarea"
                     :rows="2"
@@ -118,13 +117,13 @@
 
         saveLoad()
         {
-            saveLoadShow = true;
-            saveLoadText = world.serializeWorld();
+            this.saveLoadShow = true;
+            this.saveLoadText = this.world.serializeWorld();
         }
 
         load()
         {
-            world.loadWorld(saveLoadText);
+            this.world.loadWorld(this.saveLoadText);
         }
     }
 </script>
