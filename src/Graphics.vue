@@ -13,7 +13,7 @@
                 Clear Screen
             </el-button>
 
-            <div style="display: inline-block; width: 200px; margin-left: 10px">
+            <div style="display: inline-block; width: 200px; margin: 0 10px 0 10px">
                 <el-input v-model="inputDelay" @change="frameDelayTextbox" type="number"
                           id="input-delay">
                     <template slot="prepend">Frame Delay: </template>
