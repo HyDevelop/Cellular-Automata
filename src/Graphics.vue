@@ -27,10 +27,10 @@
             <el-dialog
                 title="Save / Load"
                 :visible.sync="saveLoadShow"
-                width="30%">
+                width="80%">
                 <el-input
                     type="textarea"
-                    :rows="2"
+                    :rows="4"
                     placeholder="Please input"
                     v-model="saveLoadText"
                     id="save-load-code">
