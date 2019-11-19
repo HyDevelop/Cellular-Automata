@@ -70,7 +70,9 @@
         mounted()
         {
             // Find canvas and create renderer
-            let canvas = document.querySelector('#world-canvas');
+            let nullableCanvas = document.querySelector('#world-canvas');
+            if (nullableCanvas == null) return;
+            let canvas: any = nullableCanvas;
             this.renderer = new Renderer(canvas);
 
             // Set frame
@@ -95,6 +97,22 @@
 
             //Register copy/paste button
             new ClipboardJS('.btn');
+
+            // Set click listener
+            canvas.addEventListener('click', (event: any) =>
+            {
+                let x = event.pageX - canvas.offsetLeft;
+                let y = event.pageY - canvas.offsetTop;
+
+                console.log(x + ', ' + y);
+
+                // Get the current state of the cell
+                //@ts-ignore
+                let point = {x: Math.floor(x / 5 / canvas.offsetWidth * 1000), y: Math.floor(y / 5 / canvas.offsetHeight * 500)};
+                let cell = this.world.getCell(point);
+                this.world.setCellStatus(point, {alive: !cell.status.alive});
+                this.world.activePoints.push(point);
+            });
         }
 
         /**

@@ -122,7 +122,7 @@ export default class World
      * @param point
      * @return Cell
      */
-    private getCell(point: Point): Cell
+    public getCell(point: Point): Cell
     {
         let cell = this.grid[point.x][point.y];
 
@@ -137,7 +137,7 @@ export default class World
      * @param point
      * @param status
      */
-    private setCellStatus(point: Point, status: Status)
+    public setCellStatus(point: Point, status: Status)
     {
         // Get cell
         let cell = this.getCell(point);
