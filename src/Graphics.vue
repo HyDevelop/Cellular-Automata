@@ -32,9 +32,11 @@
                     type="textarea"
                     :rows="2"
                     placeholder="Please input"
-                    v-model="saveLoadText">
+                    v-model="saveLoadText"
+                    id="save-load-code">
                 </el-input>
                 <span slot="footer" class="dialog-footer">
+                    <el-button class="btn" data-clipboard-target="#save-load-code">Copy</el-button>
                     <el-button @click="load">Load</el-button>
                 </span>
             </el-dialog>
@@ -49,6 +51,7 @@
     import Rules from '@/logic/rules';
     import Presets from '@/logic/presets';
     import Timer from '@/logic/timer';
+    import ClipboardJS from 'clipboard';
 
     @Component
     export default class Graphics extends Vue
@@ -89,6 +92,9 @@
 
             // Create timer
             this.timer = new Timer(() => this.world.act(), this.inputDelay);
+
+            //Register copy/paste button
+            new ClipboardJS('.btn');
         }
 
         /**
