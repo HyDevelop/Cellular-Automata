@@ -135,7 +135,6 @@
 
         clearScreen()
         {
-            console.log("Hi");
             this.world.clearGrid();
         }
 
