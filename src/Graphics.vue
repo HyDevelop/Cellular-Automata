@@ -151,7 +151,7 @@
 
             this.world.clearGrid();
 
-            for (let i = 46; i <= 47; i++)
+            for (let i = 45; i <= 46; i++)
             {
                 this.world.setCellStatus({x: i, y: 6}, STATUS_ALIVE)
                 this.world.setCellStatus({x: i, y: 7}, STATUS_ALIVE)
