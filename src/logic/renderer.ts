@@ -89,7 +89,7 @@ export default class Renderer
             // Draw line
             this.drawRect(GRID_LINE_COLOR, {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
 
-            if (x == 15 * BLOCK_FULL_LEN + BLOCK_LEN)
+            if (x == 14 * BLOCK_FULL_LEN + BLOCK_LEN)
             {
                 this.drawRect('#FFFFFF', {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
             }
@@ -100,7 +100,7 @@ export default class Renderer
         {
             this.drawRect(GRID_LINE_COLOR, {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
 
-            if (y == 15 * BLOCK_FULL_LEN + BLOCK_LEN)
+            if (y == 14 * BLOCK_FULL_LEN + BLOCK_LEN)
             {
                 this.drawRect('#FFFFFF', {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
             }
