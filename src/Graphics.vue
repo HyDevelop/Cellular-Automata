@@ -24,6 +24,10 @@
                 Save/Load
             </el-button>
 
+            <el-button type="info" plain @click="get15">
+                Get 15
+            </el-button>
+
             <el-dialog
                 title="Save / Load"
                 :visible.sync="saveLoadShow"
@@ -160,6 +164,20 @@
         load()
         {
             this.world.loadWorld(this.saveLoadText);
+        }
+
+        get15()
+        {
+            let s = '';
+            for (let x = 0; x < 15; x++)
+            {
+                for (let y = 0; y < 15; y++)
+                {
+                    s += this.world.getCell({x: y, y: x}).status.alive ? '1' : '0'
+                }
+                s += '\n'
+            }
+            console.log(s)
         }
     }
 </script>
