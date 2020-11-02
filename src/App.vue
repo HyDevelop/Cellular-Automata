@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Cellular Automata</h1>
     <Graphics></Graphics>
   </div>
 </template>
