@@ -124,6 +124,11 @@ export default class World
      */
     public getCell(point: Point): Cell
     {
+        if (point.x >= this.config.width || point.x < 0 || point.y >= this.config.height || point.y < 0)
+        {
+            return {point: {x: point.x, y: point.y}, status: STATUS_DEAD}
+        }
+
         let cell = this.grid[point.x][point.y];
 
         // If null, give the point a unique value
@@ -184,14 +189,16 @@ export default class World
             for (let y = point.y - 1; y <= point.y + 1; y++)
             {
                 // Wrap coordinates around width and height
-                let wrappedX = x % this.config.width;
-                let wrappedY = y % this.config.height;
+                // let wrappedX = x % this.config.width;
+                // let wrappedY = y % this.config.height;
 
-                // Wrap around -1
-                if (wrappedX < 0) wrappedX = this.config.width + wrappedX;
-                if (wrappedY < 0) wrappedY = this.config.height + wrappedY;
+                // // Wrap around -1
+                // if (wrappedX < 0) wrappedX = this.config.width + wrappedX;
+                // if (wrappedY < 0) wrappedY = this.config.height + wrappedY;
 
-                row.push(this.getCell({x: wrappedX, y: wrappedY}))
+                // Outside the boarder, return dead
+
+                row.push(this.getCell({x: x, y: y}))
             }
 
             // Add row to result
