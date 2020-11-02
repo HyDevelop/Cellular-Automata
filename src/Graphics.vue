@@ -92,8 +92,8 @@
             this.world = new World(
             {
                 name: 'Test',
-                width: w / 5,
-                height: h / 5,
+                width: w / 10,
+                height: h / 10,
                 rules: Rules.conway,
                 presetCells: [],
                 onUpdate: cell => this.renderer.drawCell(cell)
