@@ -47,11 +47,14 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
     import Renderer from '@/logic/renderer';
-    import World from '@/logic/world';
+    import World, {Cell, STATUS_ALIVE} from '@/logic/world';
     import Rules from '@/logic/rules';
     import Presets from '@/logic/presets';
     import Timer from '@/logic/timer';
     import ClipboardJS from 'clipboard';
+
+    let w = 1000 / 2;
+    let h = 1000 / 2;
 
     @Component
     export default class Graphics extends Vue
@@ -60,7 +63,7 @@
         world: World;
         timer: Timer = null as unknown as Timer;
 
-        inputDelay: number = 100;
+        inputDelay: number = 50;
         saveLoadText: string = '';
         saveLoadShow: boolean = false;
 
@@ -76,7 +79,7 @@
             this.renderer = new Renderer(canvas);
 
             // Set frame
-            this.renderer.setFrame(1000, 500);
+            this.renderer.setFrame(w, h);
 
             // Draw grid
             this.renderer.drawGrid();
@@ -85,12 +88,20 @@
             this.world = new World(
             {
                 name: 'Test',
-                width: 1000 / 5,
-                height: 500 / 5,
+                width: w / 5,
+                height: h / 5,
                 rules: Rules.conway,
-                presetCells: new Presets({x: 1000 / 5 / 2, y: 500 / 5 / 2}).CELLULAR_AUTOMATA,
+                presetCells: [],
                 onUpdate: cell => this.renderer.drawCell(cell)
             });
+
+            for (let i = 46; i <= 47; i++)
+            {
+                this.world.setCellStatus({x: i, y: 6}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 7}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 25}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 26}, STATUS_ALIVE)
+            }
 
             // Create timer
             this.timer = new Timer(() => this.world.act(), this.inputDelay);
@@ -108,7 +119,7 @@
 
                 // Get the current state of the cell
                 //@ts-ignore
-                let point = {x: Math.floor(x / 5 / canvas.offsetWidth * 1000), y: Math.floor(y / 5 / canvas.offsetHeight * 500)};
+                let point = {x: Math.floor(x / 10 / canvas.offsetWidth * w), y: Math.floor(y / 10 / canvas.offsetHeight * h)};
                 let cell = this.world.getCell(point);
                 this.world.setCellStatus(point, {alive: !cell.status.alive});
                 this.world.activePoints.push(point);

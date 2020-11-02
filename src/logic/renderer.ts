@@ -16,8 +16,8 @@ export interface GridBlock
 
 // Constant configurations
 const GRID_LINE_COLOR = '#5f5f5f';
-const GRID_LINE_LEN = 1;
-const BLOCK_LEN = 4;
+const GRID_LINE_LEN = 2;
+const BLOCK_LEN = 8;
 const CELL_DEAD = '#000000';
 const CELL_ALIVE = '#c8c8c8';
 
@@ -88,12 +88,22 @@ export default class Renderer
         {
             // Draw line
             this.drawRect(GRID_LINE_COLOR, {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
+
+            if (x == 15 * BLOCK_FULL_LEN + BLOCK_LEN)
+            {
+                this.drawRect('#FFFFFF', {x: x, y: 0, xLen: GRID_LINE_LEN, yLen: height});
+            }
         }
 
         // Loop through all y values
         for (let y = BLOCK_LEN; y < height; y += BLOCK_FULL_LEN)
         {
             this.drawRect(GRID_LINE_COLOR, {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
+
+            if (y == 15 * BLOCK_FULL_LEN + BLOCK_LEN)
+            {
+                this.drawRect('#FFFFFF', {x: 0, y: y, xLen: width, yLen: GRID_LINE_LEN});
+            }
         }
     }
 

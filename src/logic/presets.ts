@@ -21,6 +21,10 @@ const PATTERN_CELLULAR_AUTOMATA =
  #.....#.#......#......#......#....#.#......#....#.#...#.....#.....#.#....#...#...#....#.#....#.#....#...#...#....#
  .#####..######.######.######..####..######.#....#.#....#....#.....#..####....#....####..#....#.#....#...#...#....#`;
 
+const PATTER_ONE =
+`
+ `;
+
 export default class Presets
 {
     x: number;
@@ -39,7 +43,7 @@ export default class Presets
      * @param offsetY
      * @param status
      */
-    private cell(offsetX: number, offsetY: number, status: Status): Cell
+    public cell(offsetX: number, offsetY: number, status: Status): Cell
     {
         return {point: {x: this.x + offsetX, y: this.y + offsetY}, status: status}
     }
