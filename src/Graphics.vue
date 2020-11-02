@@ -95,13 +95,7 @@
                 onUpdate: cell => this.renderer.drawCell(cell)
             });
 
-            for (let i = 46; i <= 47; i++)
-            {
-                this.world.setCellStatus({x: i, y: 6}, STATUS_ALIVE)
-                this.world.setCellStatus({x: i, y: 7}, STATUS_ALIVE)
-                this.world.setCellStatus({x: i, y: 25}, STATUS_ALIVE)
-                this.world.setCellStatus({x: i, y: 26}, STATUS_ALIVE)
-            }
+            this.clearScreen()
 
             // Create timer
             this.timer = new Timer(() => this.world.act(), this.inputDelay);
@@ -147,6 +141,14 @@
         clearScreen()
         {
             this.world.clearGrid();
+
+            for (let i = 46; i <= 47; i++)
+            {
+                this.world.setCellStatus({x: i, y: 6}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 7}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 25}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 26}, STATUS_ALIVE)
+            }
         }
 
         saveLoad()
