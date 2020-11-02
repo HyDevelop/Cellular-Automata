@@ -144,6 +144,11 @@
 
         clearScreen()
         {
+            if (this.timer != null && this.timer.started)
+            {
+                this.timer.stop()
+            }
+
             this.world.clearGrid();
 
             for (let i = 46; i <= 47; i++)
