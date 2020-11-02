@@ -102,7 +102,12 @@
             this.clearScreen()
 
             // Create timer
-            this.timer = new Timer(() => this.world.act(), this.inputDelay);
+            this.timer = new Timer(() =>
+            {
+                this.world.act()
+                console.log("Round " + this.world.rounds)
+                if (this.world.rounds == 200) this.timer.stop()
+            }, this.inputDelay);
 
             //Register copy/paste button
             new ClipboardJS('.btn');
