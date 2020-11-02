@@ -57,6 +57,8 @@ export default class World
 
     // Active points (Undefined = no cell)
     activePoints: Point[] = [];
+    
+    rounds = 0
 
     /**
      * Construct a world with a defined world config
@@ -84,6 +86,8 @@ export default class World
      */
     public clearGrid()
     {
+        this.rounds = 0
+
         // Make empty grid
         this.grid = new Array(this.config.width).fill(undefined)
             .map(() => new Array(this.config.height).fill(undefined));
@@ -213,6 +217,8 @@ export default class World
      */
     public act()
     {
+        this.rounds ++;
+
         this.updateActivePoints();
 
         // Points to update
