@@ -158,10 +158,10 @@
 
             for (let i = 45; i <= 46; i++)
             {
+                this.world.setCellStatus({x: i, y: 5}, STATUS_ALIVE)
                 this.world.setCellStatus({x: i, y: 6}, STATUS_ALIVE)
-                this.world.setCellStatus({x: i, y: 7}, STATUS_ALIVE)
+                this.world.setCellStatus({x: i, y: 24}, STATUS_ALIVE)
                 this.world.setCellStatus({x: i, y: 25}, STATUS_ALIVE)
-                this.world.setCellStatus({x: i, y: 26}, STATUS_ALIVE)
             }
         }
 

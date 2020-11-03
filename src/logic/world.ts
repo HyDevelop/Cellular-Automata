@@ -57,7 +57,7 @@ export default class World
 
     // Active points (Undefined = no cell)
     activePoints: Point[] = [];
-    
+
     rounds = 0
 
     /**
